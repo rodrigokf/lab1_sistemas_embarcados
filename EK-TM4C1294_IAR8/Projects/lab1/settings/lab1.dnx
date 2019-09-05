@@ -16,7 +16,7 @@
         <ShowSource>1</ShowSource>
     </Trace1>
     <DebugChecksum>
-        <Checksum>791798797</Checksum>
+        <Checksum>3690708563</Checksum>
     </DebugChecksum>
     <Disassembly>
         <InstrCount>0</InstrCount>
@@ -40,6 +40,10 @@
         <Graph>0</Graph>
         <Symbiont>0</Symbiont>
     </DriverProfiling>
+    <LMIFTDIDriver>
+        <LMIFTDIserialNo>0F00ADA0</LMIFTDIserialNo>
+        <LMIFTDIfoundProbes />
+    </LMIFTDIDriver>
     <InterruptLog>
         <LogEnabled>0</LogEnabled>
         <GraphEnabled>0</GraphEnabled>
@@ -73,10 +77,13 @@
         <FreqHi>0</FreqHi>
         <MultiCoreRunAll>1</MultiCoreRunAll>
     </Simulator>
-    <LMIFTDIDriver>
-        <LMIFTDIserialNo>0F00A5D2</LMIFTDIserialNo>
-        <LMIFTDIfoundProbes />
-    </LMIFTDIDriver>
+    <DisassembleMode>
+        <mode>0</mode>
+    </DisassembleMode>
+    <Breakpoints>
+        <Bp0>_ "STD_CODE" "{$PROJ_DIR$\src\mein.c}.61.19" 1 0 0 0 "" 0 ""</Bp0>
+        <Count>1</Count>
+    </Breakpoints>
     <TermIOLog>
         <LoggingEnabled>_ 0</LoggingEnabled>
         <LogFile>_ ""</LogFile>
@@ -86,20 +93,15 @@
         <LogFile>_ ""</LogFile>
         <Category>_ 0</Category>
     </LogFile>
+    <Aliases>
+        <A0>_ "C:\Users\yuri_\Desktop\embarcados\EK-TM4C1294_IAR8\TivaWare_C_Series-2.1.4.178\driverlib\gpio.c" ""</A0>
+        <Count>1</Count>
+        <SuppressDialog>0</SuppressDialog>
+    </Aliases>
     <CallStackLog>
         <Enabled>0</Enabled>
     </CallStackLog>
     <CallStackStripe>
         <ShowTiming>1</ShowTiming>
     </CallStackStripe>
-    <DisassembleMode>
-        <mode>0</mode>
-    </DisassembleMode>
-    <Breakpoints>
-        <Count>0</Count>
-    </Breakpoints>
-    <Aliases>
-        <Count>0</Count>
-        <SuppressDialog>0</SuppressDialog>
-    </Aliases>
 </settings>

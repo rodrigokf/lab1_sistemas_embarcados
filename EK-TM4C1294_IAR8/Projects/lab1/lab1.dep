@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>4</fileVersion>
-    <fileChecksum>408548574</fileChecksum>
+    <fileChecksum>1720955628</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
+            <file>$PROJ_DIR$\Debug\Obj\system_TM4C1294_TW.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\mein.pbi</file>
+            <file>$PROJ_DIR$\..\simple_io_main_sp\src\simple_io_main_sp.c</file>
+            <file>$PROJ_DIR$\src\system_TM4C1294_TW.c</file>
+            <file>$PROJ_DIR$\src\startup_TM4C1294.s</file>
+            <file>$PROJ_DIR$\src\mein.c</file>
+            <file>$PROJ_DIR$\..\..\TivaWare_C_Series-2.1.4.178\driverlib\ewarm\Exe\driverlib.a</file>
             <file>$PROJ_DIR$\Debug\Obj\startup_TM4C1294.o</file>
             <file>$PROJ_DIR$\Debug\Obj\mein.xcl</file>
-            <file>$PROJ_DIR$\src\startup_TM4C1294.s</file>
             <file>$PROJ_DIR$\Debug\Obj\system_TM4C1294_TW.xcl</file>
-            <file>$PROJ_DIR$\src\mein.c</file>
-            <file>$PROJ_DIR$\src\system_TM4C1294_TW.c</file>
             <file>$PROJ_DIR$\Debug\Obj\system_TM4C1294_TW.o</file>
             <file>$PROJ_DIR$\Debug\Obj\mein.o</file>
             <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
@@ -21,7 +25,6 @@
             <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
             <file>$PROJ_DIR$\src\TM4C1294NCPDT.h</file>
             <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
-            <file>$PROJ_DIR$\..\..\TivaWare_C_Series-2.1.4.178\driverlib\ewarm\Exe\driverlib.a</file>
             <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
             <file>$TOOLKIT_DIR$\CMSIS\Core\Include\core_cm4.h</file>
             <file>$TOOLKIT_DIR$\inc\c\iccarm_builtin.h</file>
@@ -43,11 +46,47 @@
             <file>$PROJ_DIR$\Debug\List\lab1.map</file>
         </outputs>
         <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 13 38</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\src\system_TM4C1294_TW.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 36</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 0</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 10</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 19 17 27 20 21 18 35 14 26 12 15 25 23 24 22</file>
+                </tool>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 17 14 20 19 12 15 18 21 23 24 26 22 25 27 35</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
             <name>$PROJ_DIR$\src\startup_TM4C1294.s</name>
             <outputs>
                 <tool>
                     <name>AARM</name>
-                    <file> 0</file>
+                    <file> 7</file>
                 </tool>
             </outputs>
         </file>
@@ -55,45 +94,26 @@
             <name>$PROJ_DIR$\src\mein.c</name>
             <outputs>
                 <tool>
-                    <name>ICCARM</name>
-                    <file> 7</file>
+                    <name>__cstat</name>
+                    <file> 33</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
                     <file> 1</file>
                 </tool>
                 <tool>
-                    <name>__cstat</name>
-                    <file> 30</file>
+                    <name>ICCARM</name>
+                    <file> 11</file>
                 </tool>
             </outputs>
             <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 13 10 17 15 8 11 24 27 31 32</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\src\system_TM4C1294_TW.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 6</file>
-                </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 3</file>
+                    <file> 14 35 15 30 12 27 34 20 19 17</file>
                 </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 33</file>
-                </tool>
-            </outputs>
-            <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 13 10 17 15 8 11 14 18 20 21 23 19 22 24 32</file>
+                    <file> 17 14 20 19 12 15 27 30 34 35</file>
                 </tool>
             </inputs>
         </file>
@@ -102,24 +122,15 @@
             <outputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 35</file>
+                    <file> 38</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 26 16 7 0 6 28 25 29 34</file>
+                    <file> 29 6 11 7 10 31 28 32 37</file>
                 </tool>
             </inputs>
-        </file>
-        <file>
-            <name>[ROOT_NODE]</name>
-            <outputs>
-                <tool>
-                    <name>ILINK</name>
-                    <file> 9 35</file>
-                </tool>
-            </outputs>
         </file>
     </configuration>
     <configuration>
@@ -128,6 +139,9 @@
         <forcedrebuild>
             <name>[MULTI_TOOL]</name>
             <tool>ILINK</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>[REBUILD_ALL]</name>
         </forcedrebuild>
     </configuration>
 </project>
