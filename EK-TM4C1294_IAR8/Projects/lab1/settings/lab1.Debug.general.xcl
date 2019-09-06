@@ -1,14 +1,14 @@
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.1\arm\bin\armproc.dll" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\arm\bin\armproc.dll" 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.1\arm\bin\armlmiftdi.dll" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\arm\bin\armlmiftdi.dll" 
 
-"C:\Users\Daeln\Desktop\digo\lab1_sistemas_embarcados\EK-TM4C1294_IAR8\Projects\lab1\Debug\Exe\lab1.out" 
+"C:\Users\Rodrigo\Desktop\GIT\lab1_sistemas_embarcados\EK-TM4C1294_IAR8\Projects\lab1\Debug\Exe\lab1.out" 
 
---plugin="C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.1\arm\bin\armbat.dll" 
+--plugin="C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\arm\bin\armbat.dll" 
 
---device_macro="C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.1\arm\config\debugger\TexasInstruments\TM4C129.dmac" 
+--device_macro="C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\arm\config\debugger\TexasInstruments\TM4C129.dmac" 
 
---flash_loader="C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.1\arm\config\flashloader\TexasInstruments\FlashTC4_NC.board" 
+--flash_loader="C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\arm\config\flashloader\TexasInstruments\FlashTC4_NC.board" 
 
 
 

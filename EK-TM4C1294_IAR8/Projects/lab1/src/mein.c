@@ -1,3 +1,8 @@
+//RODRIGO KNELSEN FRIESEN
+//YURI ANDREIKO
+
+//EQUIPE: S11_G09
+
 #define PART_TM4C1294NCPDT
 
 #include <stdint.h>
