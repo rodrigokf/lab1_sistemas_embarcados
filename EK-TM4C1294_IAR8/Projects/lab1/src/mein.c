@@ -32,36 +32,45 @@ void calculo_tempo(uint32_t tl, uint32_t th)
   uint32_t periodo;
   uint32_t duty_cycle;
   uint32_t frequencia;
+  uint8_t c = 0;
   
   uint8_t duty[2]; //vetor para converter para caracteres
-  uint8_t freq[4]; //vetor para converter para caracteres
+  uint8_t freq[6]; //vetor para converter para caracteres
   
-  //para 24MHz
-  tl *= 769;  //tempo em ns 
-  th *= 1282; //tempo em ns
+  tl *= 769 ;  //tempo em ns 
+  th *= 1282 ; //tempo em ns
   
   periodo = tl + th;
-  duty_cycle = (uint32_t) (th/periodo)*100;
+  duty_cycle = (uint32_t) (th*100)/periodo;
   frequencia = 10000000/periodo; //valor em xxx.x KHz de frequencia
   
   
   //etapa que converte valor decimal para caractres ASCII
-  freq[0] = (frequencia/1000) + 0x30;     //centena
+  freq[0] = (frequencia/100000);     //milhão
   frequencia -= freq[0] * 1000;
-  freq[1] = (frequencia/100) + 0x30;      //dezena
-  frequencia -= freq[1] * 100;
-  freq[2] = (frequencia/10) + 0x30;       //unidade
-  frequencia -= freq[2] * 10;
-  freq[3] = frequencia + 0x30;          //decimal
+  freq[1] = (frequencia/10000);     //milhar
+  frequencia -= freq[1] * 1000;
+  freq[2] = (frequencia/1000);     //centena
+  frequencia -= freq[2] * 1000;
+  freq[3] = (frequencia/100);      //dezena
+  frequencia -= freq[3] * 100;
+  freq[4] = (frequencia/10);       //unidade
+  frequencia -= freq[4] * 10;
+  freq[5] = frequencia;          //decimal
   
-  duty[0] = (duty_cycle/10) + 0x30;      //dezena
+  for(c = 0; c < 6; c++)
+    freq[c] += 0x30;
+  
+  duty[0] = (duty_cycle/10);      //dezena
   duty_cycle -= duty[0] * 10;
   duty[1] = duty_cycle + 0x30;           //unidade
   
+  duty[0] += 0x30;
+  
   UART_send_string("freq = ", 7);
-  UART_send_string(freq, 3);
+  UART_send_string(freq, 5);
   UART_send_string(".", 1);
-  UART_send_string(&freq[3], 1); 
+  UART_send_string(&freq[5], 1); 
   UART_send_string("kHz", 3);
   UART_send_string("\r\n", 2);
 
@@ -69,6 +78,8 @@ void calculo_tempo(uint32_t tl, uint32_t th)
   UART_send_string(duty, 2);
   UART_send_string("%", 1);
   UART_send_string("\r\n", 2);
+  
+  sys_delay(3000);
 }
 
 void main(void){
