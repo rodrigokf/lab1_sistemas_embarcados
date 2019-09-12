@@ -13,6 +13,9 @@
 #include "system_TM4C1294.h"
 #define SECOND 3000000 //vai mudar o valor
 
+//#define FREQ_120M
+
+
 //delay em ms
 void sys_delay(uint32_t temp)
 {
@@ -37,12 +40,22 @@ void calculo_tempo(uint32_t tl, uint32_t th)
   uint8_t duty[2]; //vetor para converter para caracteres
   uint8_t freq[6]; //vetor para converter para caracteres
   
-  tl *= 769 ;  //tempo em ns 
-  th *= 1282 ; //tempo em ns
+#ifdef FREQ_120M
+ 
+  tl *= 1316;
+  th *= 1471;
+#else
+  
+  tl *= 6329 ;  //tempo em ns 
+  th *= 7142 ; //tempo em ns
+  
+#endif
+  
+  
   
   periodo = tl + th;
   duty_cycle = (uint32_t) (th*100)/periodo;
-  frequencia = 10000000/periodo; //valor em xxx.x KHz de frequencia
+  frequencia = 100000000/periodo; //valor em xxx.x KHz de frequencia
   
   
   //etapa que converte valor decimal para caractres ASCII
@@ -115,17 +128,19 @@ void main(void){
   UARTConfigSetExpClk(UART0_BASE, SystemCoreClock , 115200,
                           (UART_CONFIG_WLEN_8 | UART_CONFIG_STOP_ONE |
                            UART_CONFIG_PAR_NONE));
-  sys_delay(10);
+  sys_delay(5);
   UART_send_string("inicio", 6);
   UART_send_string("\r\n", 2);
 
   uint32_t tlimite = 0; //tempo limite para detectar se sinal é nível DC
-  uint8_t entrada = 0;  //variável que recebe a leitura do pino de sinal
+  uint8_t entrada = 1;  //variável que recebe a leitura do pino de sinal
  
   uint32_t th = 0, tl = 0; //th = tempo high, tl = tempo low
   uint8_t flag_out = 0; //flag de saída, quando detectou condição de saída do loop
   while(1)
   {    
+    th = 0;
+    tl = 0;
        while(entrada != 0)                                                                      //CODIGO QUE ESPERA 1 CICLO
        {                                                                                        //CODIGO QUE ESPERA 1 CICLO
          entrada = GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_1);           //le gpio                //CODIGO QUE ESPERA 1 CICLO
@@ -137,77 +152,19 @@ void main(void){
           }                                                                                     //CODIGO QUE ESPERA 1 CICLO
           break;                                                                                //CODIGO QUE ESPERA 1 CICLO
          }                                                                                      //CODIGO QUE ESPERA 1 CICLO
-       }                                                                                        //CODIGO QUE ESPERA 1 CICLO
+       }  
+       
+       while(GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_1) != 0x00) //enquanto sinal nao for para zero
+       {
+         th++;
+       }
+       while(GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_1) == 0x00) //enquanto sinal nao for para zero
+       {
+         tl++;
+       }
     
-       flag_out = 0;
-       entrada = GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_1);           //le gpio
-       if(entrada != 0) //se entrada for 1 (detector de borda de subida)
-       {
-         tlimite = 0;   //reinicia contador limite de tempo
-         while(flag_out == 0)
-         {
-           entrada = GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_1);
-           if(entrada == 0) //procura borda de descida
-           {
-             while(1)
-             {
-                entrada = GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_1);
-                if(entrada == 0x02) //procura borda de subida
-                {
-                  //calculo final
-                  //chama uart
-                  
-                  calculo_tempo(tl, th);
-                  
-                  tl = 0;
-                  th = 0;
-                  tlimite = 0;
-                  flag_out = 1;
-                  break;
-                }
-                else
-                  tl++;
-             }
-           }
-           else
-           {
-             tlimite++;
-             th++;
-             
-             if(tlimite > 1000000)
-             {
-               //chama uart
-               //f = 0
-               //duty = 1
-               
-               UART_send_string("freq = 0Hz", 10);
-               UART_send_string("\r\n", 2);
-               UART_send_string("duty cycle = 100%", 17);
-               UART_send_string("\r\n", 2);
-               tl = 0;
-               th = 0;
-               tlimite = 0;
-               break;
-             }
-           }
-         }
-         
-       }
-       else
-       {
-         tlimite++;
-         if(tlimite > 1000000)
-         {
-           //chama uart
-           //f = 0
-           //duty = 0
-           UART_send_string("freq = 0Hz", 10);
-           UART_send_string("\r\n", 2);
-           UART_send_string("duty cycle = 0%", 15);
-           UART_send_string("\r\n", 2);
-           tlimite = 0;
-         }
-       }
+       calculo_tempo(tl, th);
+       entrada = 1;
   }
    
     
