@@ -1,3 +1,5 @@
+#define FREQ_120M
+ 
 /*****************************************************************************
  * @file     system_TM4C1294.h (based on system_TM4C129.h)
  * @brief    CMSIS Cortex-M4 Device Peripheral Access Layer Header File for

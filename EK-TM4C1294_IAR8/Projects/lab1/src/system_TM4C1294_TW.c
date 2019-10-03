@@ -10,13 +10,20 @@
 #include "TM4C1294NCPDT.h"
 #include <stdbool.h>
 #include "driverlib/sysctl.h"
+#include "system_TM4C1294.h"
+   
+#ifdef FREQ_120M
+  #define FREQUENCY_CLOCK 120000000UL
+#else 
+  #define FREQUENCY_CLOCK 24000000UL
+#endif
 
 /*----------------------------------------------------------------------------
   Defines for clock configuration -- user defined
  *----------------------------------------------------------------------------*/
 #define __CONFIG_CLOCK                                                        \
     (SYSCTL_XTAL_25MHZ | SYSCTL_OSC_MAIN | SYSCTL_USE_PLL | SYSCTL_CFG_VCO_480)
-#define __SYSTEM_CLOCK    (24000000UL)
+#define __SYSTEM_CLOCK    (FREQUENCY_CLOCK)
 
 
 /*----------------------------------------------------------------------------

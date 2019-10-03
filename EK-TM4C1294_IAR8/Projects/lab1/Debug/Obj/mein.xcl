@@ -1,16 +1,18 @@
-"C:\Users\yuri_\Desktop\embarcados\EK-TM4C1294_IAR8\Projects\lab1\src\mein.c"
+"C:\Users\yuri_\Desktop\Sistemas Embarcados\lab1_sistemas_embarcados\EK-TM4C1294_IAR8\Projects\lab1\src\mein.c"
 -std=c11
 -ferror-limit=0
 -fbracket-depth=512
 -MD
 -MF
-C:\Users\yuri_\Desktop\embarcados\EK-TM4C1294_IAR8\Projects\lab1\Debug\Obj\mein.pbi.dep
+C:\Users\yuri_\Desktop\Sistemas Embarcados\lab1_sistemas_embarcados\EK-TM4C1294_IAR8\Projects\lab1\Debug\Obj\mein.pbi.dep
 -o
 mein.pbi
 -I
-C:\Users\yuri_\Desktop\embarcados\EK-TM4C1294_IAR8\Projects\lab1\src
+C:\Users\yuri_\Desktop\Sistemas Embarcados\lab1_sistemas_embarcados\EK-TM4C1294_IAR8\Projects\lab1\src
 -I
-C:\Users\yuri_\Desktop\embarcados\EK-TM4C1294_IAR8\TivaWare_C_Series-2.1.4.178
+C:\Users\Daeln\Desktop\digo\lab1_sistemas_embarcados\EK-TM4C1294_IAR8\TivaWare_C_Series-2.1.4.178
+-I
+C:\Users\yuri_\Desktop\Sistemas Embarcados\lab1_sistemas_embarcados\EK-TM4C1294_IAR8\TivaWare_C_Series-2.1.4.178
 -I
 D:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\arm\CMSIS\Core\Include
 -I
@@ -20,7 +22,9 @@ D:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\arm\inc
 -I
 D:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\arm\inc\c
 -I
-C:\Users\yuri_\Desktop\embarcados\EK-TM4C1294_IAR8\TivaWare_C_Series-2.1.4.178
+C:\Users\Daeln\Desktop\digo\lab1_sistemas_embarcados\EK-TM4C1294_IAR8\TivaWare_C_Series-2.1.4.178
+-I
+C:\Users\yuri_\Desktop\Sistemas Embarcados\lab1_sistemas_embarcados\EK-TM4C1294_IAR8\TivaWare_C_Series-2.1.4.178
 -I
 D:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\arm\CMSIS\Core\Include
 -I
